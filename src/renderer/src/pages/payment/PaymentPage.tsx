@@ -1,3 +1,4 @@
+import Header from '@renderer/components/Header'
 import '../../../index.css'
 import { useLocation, useNavigate } from 'react-router-dom'
 // import { initiatePayment } from './initiatePayment'
@@ -18,14 +19,11 @@ function PaymentPage() {
     navigate('/paymentProcess', { state: paymentDetails })
   }
 
+  console.log({ state })
+
   return (
     <main className="flex flex-col min-h-screen">
-      <header className="flex items-center space-x-4 bg-red-500 px-2 py-4">
-        <button onClick={() => navigate('/')} className="text-white font-bold text-xl">
-          back
-        </button>
-        <h1 className="text-white font-bold text-3xl">Bugger Barger</h1>
-      </header>
+      <Header navigate="/" />
       <div className=" flex items-center justify-between px-6 h-24">
         <h1 className="text-4xl">{product}</h1>
         <h2 className="text-3xl underline">Rp.120.000</h2>
