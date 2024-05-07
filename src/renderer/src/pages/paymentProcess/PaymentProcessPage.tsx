@@ -1,3 +1,4 @@
+import Header from '@renderer/components/Header'
 import { generateRandomString } from '@renderer/utils/randomString'
 import QRCode from 'qrcode'
 import { useEffect, useState } from 'react'
@@ -11,6 +12,8 @@ const PaymentProcessPage = () => {
   const { state } = useLocation()
   const { product, amount, methode, currency } = state
   const orderId = generateRandomString(7)
+
+  console.log({ state })
 
   useEffect(() => {
     const generateQRCode = async () => {
@@ -55,15 +58,7 @@ const PaymentProcessPage = () => {
 
   return (
     <main className="min-h-screen flex flex-col">
-      <header className="flex items-center space-x-4 bg-red-500 px-2 py-4">
-        <button
-          onClick={() => navigate({ pathname: '/payment' }, { state: { product } })}
-          className="text-white font-bold text-xl"
-        >
-          back
-        </button>
-        <h1 className="text-white font-bold text-3xl">Bugger Barger</h1>
-      </header>
+      <Header navigate="/payment" state={{ product }} />
 
       <div className="flex-1 flex flex-col justify-center items-center">
         {qrCodeImage && <img src={qrCodeImage} alt="QR Code" />}
