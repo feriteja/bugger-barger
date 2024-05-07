@@ -4,6 +4,7 @@ import { createHashRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './pages/home/HomePage'
 import PaymentPage from './pages/payment/PaymentPage'
 import PaymentProcessPage from './pages/paymentProcess/PaymentProcessPage'
+import PaymentSuccess from './pages/paymentSuccess/PaymentSuccess'
 
 const router = createHashRouter([
   {
@@ -17,6 +18,10 @@ const router = createHashRouter([
   {
     path: 'paymentProcess',
     element: <PaymentProcessPage />
+  },
+  {
+    path: 'paymentSuccess',
+    element: <PaymentSuccess />
   }
 ])
 

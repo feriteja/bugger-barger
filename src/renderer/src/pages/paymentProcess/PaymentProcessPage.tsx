@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import { generateRandomString } from '@renderer/utils/randomString'
 import QRCode from 'qrcode'
+import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { io } from 'socket.io-client'
 
 const PaymentProcessPage = () => {
   const [qrCodeImage, setQRCodeImage] = useState('')
 
   const navigate = useNavigate()
   const { state } = useLocation()
-  const { product, price, methode } = state
+  const { product, amount, methode, currency } = state
+  const orderId = generateRandomString(7)
 
   useEffect(() => {
     const generateQRCode = async () => {
       try {
         const qrCodeDataURL = await QRCode.toDataURL(
-          `http://localhost:3000?price=${price}&product=${product}&methode=${methode}`,
+          `https://hollow-cathleen-synfs-4dc74ccc.koyeb.app/webhook?amount=${encodeURIComponent(amount)}&product=${encodeURIComponent(product)}&methode=${encodeURIComponent(methode)}&currency=${encodeURIComponent(currency)}&orderId=${orderId}`,
           {
             width: 300,
             color: {
@@ -23,31 +26,51 @@ const PaymentProcessPage = () => {
         )
         setQRCodeImage(qrCodeDataURL)
       } catch (error) {
-        // Handle error if QR code generation fails
         console.error('Error generating QR code:', error)
+        // Optionally, set an error state here for UI feedback
       }
     }
 
-    // Call the async function
     generateQRCode()
   }, [])
 
+  useEffect(() => {
+    const socket = io('https://hollow-cathleen-synfs-4dc74ccc.koyeb.app') // Replace with your server URL
+
+    socket.on('connect', () => {
+      console.log('Connected to server')
+      socket.emit('join', orderId, (response) => {
+        console.log({ response })
+      })
+    })
+
+    socket.on('webhook', () => {
+      return navigate('/paymentSuccess')
+    })
+
+    return () => {
+      socket.disconnect()
+    }
+  }, [])
+
   return (
-    <main>
+    <main className="min-h-screen flex flex-col">
       <header className="flex items-center space-x-4 bg-red-500 px-2 py-4">
-        <button onClick={() => navigate('/')} className="text-white font-bold text-xl">
+        <button
+          onClick={() => navigate({ pathname: '/payment' }, { state: { product } })}
+          className="text-white font-bold text-xl"
+        >
           back
         </button>
         <h1 className="text-white font-bold text-3xl">Bugger Barger</h1>
       </header>
-      <h2>QR Code Generator</h2>
 
-      {qrCodeImage && (
-        <div>
-          <h3>QR Code Preview</h3>
-          <img src={qrCodeImage} alt="QR Code" />
-        </div>
-      )}
+      <div className="flex-1 flex flex-col justify-center items-center">
+        {qrCodeImage && <img src={qrCodeImage} alt="QR Code" />}
+        <h2 className="font-semibold text-lg">
+          {methode} - Rp{amount}
+        </h2>
+      </div>
     </main>
   )
 }
