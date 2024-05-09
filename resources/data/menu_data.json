@@ -1,0 +1,92 @@
+[
+  {
+    "category": "burger",
+    "variants": [
+      {
+        "name": "Classic Burger",
+        "price": 9.99,
+        "imageUrl": "https://example.com/classic_burger.jpg"
+      },
+      {
+        "name": "Cheeseburger",
+        "price": 10.99,
+        "imageUrl": "https://example.com/cheeseburger.jpg"
+      },
+      {
+        "name": "Bacon Burger",
+        "price": 11.99,
+        "imageUrl": "https://example.com/bacon_burger.jpg"
+      },
+      {
+        "name": "Mushroom Swiss Burger",
+        "price": 12.99,
+        "imageUrl": "https://example.com/mushroom_swiss_burger.jpg"
+      },
+      {
+        "name": "BBQ Burger",
+        "price": 11.49,
+        "imageUrl": "https://example.com/bbq_burger.jpg"
+      }
+    ]
+  },
+  {
+    "category": "pizza",
+    "variants": [
+      {
+        "name": "Pepperoni Pizza",
+        "price": 12.99,
+        "imageUrl": "https://example.com/pepperoni_pizza.jpg"
+      },
+      {
+        "name": "Margherita Pizza",
+        "price": 11.99,
+        "imageUrl": "https://example.com/margherita_pizza.jpg"
+      },
+      {
+        "name": "Supreme Pizza",
+        "price": 14.99,
+        "imageUrl": "https://example.com/supreme_pizza.jpg"
+      },
+      {
+        "name": "BBQ Chicken Pizza",
+        "price": 13.99,
+        "imageUrl": "https://example.com/bbq_chicken_pizza.jpg"
+      },
+      {
+        "name": "Vegetarian Pizza",
+        "price": 12.49,
+        "imageUrl": "https://example.com/vegetarian_pizza.jpg"
+      }
+    ]
+  },
+  {
+    "category": "hotdog",
+    "variants": [
+      {
+        "name": "Classic Hotdog",
+        "price": 6.99,
+        "imageUrl": "https://example.com/classic_hotdog.jpg"
+      },
+      {
+        "name": "Chili Cheese Hotdog",
+        "price": 7.49,
+        "imageUrl": "https://example.com/chili_cheese_hotdog.jpg"
+      },
+      {
+        "name": "Chicago Style Hotdog",
+        "price": 8.49,
+        "imageUrl": "https://example.com/chicago_style_hotdog.jpg"
+      },
+      {
+        "name": "Bacon Wrapped Hotdog",
+        "price": 7.99,
+        "imageUrl": "https://example.com/bacon_wrapped_hotdog.jpg"
+      },
+      {
+        "name": "Jalapeno Hotdog",
+        "price": 7.29,
+        "imageUrl": "https://example.com/jalapeno_hotdog.jpg"
+      }
+    ]
+  }
+]
