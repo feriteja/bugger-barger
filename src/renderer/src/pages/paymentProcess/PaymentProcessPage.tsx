@@ -10,7 +10,7 @@ const PaymentProcessPage = () => {
 
   const navigate = useNavigate()
   const { state } = useLocation()
-  const { product, amount, methode, currency } = state
+  const { product, amount, methode, currency, price } = state
   const orderId = generateRandomString(7)
 
   console.log({ state })
@@ -58,12 +58,12 @@ const PaymentProcessPage = () => {
 
   return (
     <main className="min-h-screen flex flex-col">
-      <Header navigate="/payment" state={{ product }} />
+      <Header navigate="/payment" state={{ product, price }} />
 
       <div className="flex-1 flex flex-col justify-center items-center">
         {qrCodeImage && <img src={qrCodeImage} alt="QR Code" />}
         <h2 className="font-semibold text-lg">
-          {methode} - Rp{amount}
+          {methode} - ${amount}
         </h2>
       </div>
     </main>
