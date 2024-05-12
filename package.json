@@ -1,6 +1,6 @@
 {
   "name": "bugger-barger",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An Electron application with React and TypeScript",
   "license": "MIT",
   "main": "./out/main/index.js",
