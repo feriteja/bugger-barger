@@ -59,7 +59,7 @@ function Cart({ cart, setCart }: props) {
         <h1>Total</h1>
         <h2 className="font-bold text-2xl">${totalPrice.toFixed(2)}</h2>
         <button
-          className=" absolute bottom-3 right-3 left-3  bg-green-300 px-3 py-2 rounded-md disabled:bg-slate-500"
+          className=" absolute bottom-3 right-3 left-3  bg-green-400 px-3 py-2 rounded-md disabled:bg-slate-500"
           disabled={totalPrice === 0}
           onClick={() => navigate('payment', { state: { cart } })}
         >

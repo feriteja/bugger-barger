@@ -45,7 +45,9 @@ function HomePage() {
       <div className="flex  flex-col sm:flex-row relative">
         <div className="flex-[2] md:flex-1 relative shadow-xl ">
           <div className="sticky min-h-screen flex flex-col space-y-8 justify-center items-center bottom-0 top-0 right-0 left-0  ">
-            <h1 className="fixed top-16 font-bold text-2xl hidden sm:block">BugaBug</h1>
+            <h1 className="fixed top-16 font-bold text-2xl hidden text-red-500 sm:block">
+              BugaBug
+            </h1>
             <button
               onClick={() => setMenuChoice('burger')}
               className="col-span-4 flex items-center justify-center shadow-md cursor-pointer rounded-md "

@@ -11,14 +11,14 @@ function Header(props: props) {
   const navigate = useNavigate()
 
   return (
-    <header className="flex items-center space-x-4 bg-red-500 px-2 py-4 bg-opacity-85">
+    <header className="flex items-center space-x-4  px-2 py-4 bg-opacity-85">
       <button
         onClick={() => navigate(props.navigate, { state: props.state })}
-        className="text-white font-bold text-xl px-4"
+        className="font-bold text-xl px-4"
       >
-        <IoMdArrowRoundBack size={32} color="#fff" />
+        <IoMdArrowRoundBack size={32} />
       </button>
-      <h1 className="text-white font-bold text-lg sm:text-xl md:text-2xl">
+      <h1 className=" font-bold text-lg text-red-500   sm:text-xl md:text-2xl">
         {props.title || 'BugaBug'}
       </h1>
     </header>

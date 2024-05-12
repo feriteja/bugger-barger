@@ -10,10 +10,8 @@ const PaymentProcessPage = () => {
 
   const navigate = useNavigate()
   const { state } = useLocation()
-  const { product, amount, methode, currency, price } = state
+  const { amount, methode, currency, product } = state
   const orderId = generateRandomString(7)
-
-  console.log({ state })
 
   useEffect(() => {
     const generateQRCode = async () => {
@@ -58,7 +56,7 @@ const PaymentProcessPage = () => {
 
   return (
     <main className="min-h-screen flex flex-col">
-      <Header navigate="/payment" state={{ product, price }} />
+      <Header navigate="/payment" state={{ cart: product }} />
 
       <div className="flex-1 flex flex-col justify-center items-center">
         {qrCodeImage && <img src={qrCodeImage} alt="QR Code" />}
